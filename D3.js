@@ -158,12 +158,16 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
       eyeColor.red.push(starWarsCharacters[i]);
   }
 }
-console.log(eyeColor[i]);
 /* ESERCIZIO 6
   Usa un while loop per calcolare la massa totale dell'equipaggio. Salvala in una variabile chiamata "crewMass".
 */
 let crewMass = 0;
-
+let x = 0;
+while (x < starWarsCharacters.length) {
+  crewMass += starWarsCharacters[x].mass;
+  x++;
+}
+console.log("Totale è:" + crewMass);
 /* ESERCIZIO 7
   Crea uno if/else statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'ipotetica astronave contenente i personaggi dell'array "starWarsCharacters".
 
@@ -175,11 +179,27 @@ let crewMass = 0;
 
   Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 */
-
+if (crewMass < 500) {
+  console.log("Ship is under loaded");
+} else if (crewMass > 500 && crewMass < 700) {
+  console.log("Ship is half loaded");
+} else if (crewMass > 700 && crewMass < 900) {
+  console.log("Warning: Load is over 700");
+} else if (crewMass > 900 && crewMass < 1000) {
+  console.log("Critical Load: Over 900");
+} else crewMass > 1000;
+{
+  console.log("DANGER! OVERLOAD ALERT: escape from ship now!");
+}
 /* ESERCIZIO 8
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
-
+for (i = 0; i < starWarsCharacters.length; i++) {
+  if (starWarsCharacters[i].gender === "n/a") {
+    starWarsCharacters[i].gender = "robot";
+  }
+}
+console.log(starWarsCharacters);
 /* --EXTRA-- ESERCIZIO 9
   Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "charactersNames" le stringhe corrispondenti a personaggi con lo stesso nome.
   Una volta fatto crea un console.log per controllare la proprietà length di "charactersNames" prima e dopo l'operazione.
@@ -187,4 +207,4 @@ let crewMass = 0;
 
 /* --EXTRA-- ESERCIZIO 10
   Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
-*
+*/
